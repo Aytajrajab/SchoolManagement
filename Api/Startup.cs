@@ -10,6 +10,8 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Repository.DAL;
 using Repository.Mapper;
+using Repository.Repository.Abstraction;
+using Repository.Repository.Implementation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,6 +40,7 @@ namespace Api
                         builder.MigrationsAssembly(nameof(Repository));
                     });
             });
+            services.AddScoped(typeof(IRepository<>), typeof(EfCoreRepository<>));
             services.AddControllers();
             services.AddAutoMapper(typeof(MapperProfile));
             services.AddSwaggerGen(c =>

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using DomainModels.Dtos;
 using DomainModels.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +12,7 @@ using System.Threading.Tasks;
 
 namespace Api.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class StudentsController : ControllerBase
@@ -58,6 +60,15 @@ namespace Api.Controllers
             bool result = _repository.Update(existStudent);
             if (!result) return BadRequest("Sorry, I can't handle this");
             return StatusCode(StatusCodes.Status200OK);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete([FromRoute] int id)
+        {
+            var student = await _repository.GetAsync(id);
+            var result = await _repository.DeleteAsync(student);
+            if (!result) return BadRequest("Something went wrong :(");
+            return StatusCode(StatusCodes.Status204NoContent);
         }
     }
 }

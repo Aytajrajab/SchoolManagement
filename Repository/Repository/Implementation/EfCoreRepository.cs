@@ -55,9 +55,11 @@ namespace Repository.Repository.Implementation
             throw new NotImplementedException();
         }
 
-        public Task<bool> DeleteAsync(T item)
+        public async Task<bool> DeleteAsync(T item)
         {
-            throw new NotImplementedException();
+            Db.Set<T>().Remove(item);
+            await Db.SaveChangesAsync();
+            return true;
         }
 
         public Task<bool> DeleteAsync(List<T> item)

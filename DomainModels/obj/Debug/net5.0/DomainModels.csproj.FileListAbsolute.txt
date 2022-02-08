@@ -11,5 +11,4 @@ C:\Users\aytac\OneDrive\Documents\Projects\SchoolManagement\DomainModels\obj\Deb
 C:\Users\aytac\OneDrive\Documents\Projects\SchoolManagement\DomainModels\obj\Debug\net5.0\DomainModels.pdb
 C:\Users\aytac\OneDrive\Documents\Projects\SchoolManagement\DomainModels\bin\Debug\net5.0\DomainModels.runtimeconfig.json
 C:\Users\aytac\OneDrive\Documents\Projects\SchoolManagement\DomainModels\bin\Debug\net5.0\DomainModels.runtimeconfig.dev.json
-C:\Users\aytac\OneDrive\Documents\Projects\SchoolManagement\DomainModels\obj\Debug\net5.0\DomainModels.csproj.AssemblyReference.cache
 C:\Users\aytac\OneDrive\Documents\Projects\SchoolManagement\DomainModels\obj\Debug\net5.0\DomainModels.genruntimeconfig.cache

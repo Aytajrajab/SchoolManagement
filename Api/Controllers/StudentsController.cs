@@ -1,4 +1,6 @@
-﻿using AutoMapper;
+﻿using Api.Tools.EmailHandler;
+using Api.Tools.EmailHandler.Abstraction;
+using AutoMapper;
 using DomainModels.Dtos;
 using DomainModels.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -19,10 +21,12 @@ namespace Api.Controllers
     {
         private readonly IRepository<Student> _repository;
         private readonly IMapper _mapper;
-        public StudentsController(IRepository<Student> repository, IMapper mapper)
+        private readonly IEmailService _mailService;
+        public StudentsController(IRepository<Student> repository, IMapper mapper, IEmailService mailService)
         {
             _repository = repository;
             _mapper = mapper;
+            _mailService = mailService;
         }
         [HttpGet]
         public async Task<IActionResult> Get()
@@ -46,6 +50,8 @@ namespace Api.Controllers
             var student = _mapper.Map<Student>(studentDto);
             bool result = await _repository.AddAsync(student);
             if (!result) return BadRequest("Be clever");
+            await _mailService.SendEmailAsync(new MailRequest { ToEmail = "aytajir@code.edu.az", 
+                Subject = "Congratulations", Body = $"{student} created" });
             return StatusCode(StatusCodes.Status201Created);
         }
 

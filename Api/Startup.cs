@@ -1,3 +1,6 @@
+using Api.Tools.EmailHandler.Abstraction;
+using Api.Tools.EmailHandler.Configuration;
+using Api.Tools.EmailHandler.Implementation;
 using Authentication.Models;
 using Authentication.Services;
 using DomainModels.Models;
@@ -63,7 +66,10 @@ namespace Api
             });
 
             services.Configure<JWT>(Configuration.GetSection("JWT"));
+            services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
             services.AddScoped<IAuthService, AuthService>();
+
+            services.AddTransient<IEmailService, SMTPEmailService>();
 
             services.AddAuthentication(options =>
             {

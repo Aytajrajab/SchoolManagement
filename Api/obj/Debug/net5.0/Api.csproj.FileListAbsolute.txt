@@ -75,3 +75,6 @@ C:\Users\aytac\OneDrive\Documents\Projects\SchoolManagement\Api\bin\Debug\net5.0
 C:\Users\aytac\OneDrive\Documents\Projects\SchoolManagement\Api\bin\Debug\net5.0\Authentication.dll
 C:\Users\aytac\OneDrive\Documents\Projects\SchoolManagement\Api\bin\Debug\net5.0\Authentication.pdb
 C:\Users\aytac\OneDrive\Documents\Projects\SchoolManagement\Api\obj\Debug\net5.0\Api.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\aytac\OneDrive\Documents\Projects\SchoolManagement\Api\bin\Debug\net5.0\MailKit.dll
+C:\Users\aytac\OneDrive\Documents\Projects\SchoolManagement\Api\bin\Debug\net5.0\MimeKit.dll
+C:\Users\aytac\OneDrive\Documents\Projects\SchoolManagement\Api\bin\Debug\net5.0\BouncyCastle.Crypto.dll
